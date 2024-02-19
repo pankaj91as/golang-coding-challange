@@ -9,24 +9,45 @@ func main() {
 	fmt.Printf("Value can insert @ position %d\n", tindex)
 }
 
-// Third iteration
+// Fourth iteration
 func searchInsert(nums []int, target int) int {
 	sI := 0
 	lI := len(nums) - 1
 
 	for sI <= lI {
 		mid := (sI + lI) / 2
-		if target < nums[mid] {
+		currentVal := nums[mid]
+		switch {
+		case target < currentVal:
 			lI = mid - 1
-		} else if target > nums[mid] {
+		case target > currentVal:
 			sI = mid + 1
-		} else {
+		default:
 			return mid
 		}
 	}
 
 	return sI
 }
+
+// Third iteration
+// func searchInsert(nums []int, target int) int {
+// 	sI := 0
+// 	lI := len(nums) - 1
+
+// 	for sI <= lI {
+// 		mid := (sI + lI) / 2
+// 		if target < nums[mid] {
+// 			lI = mid - 1
+// 		} else if target > nums[mid] {
+// 			sI = mid + 1
+// 		} else {
+// 			return mid
+// 		}
+// 	}
+
+// 	return sI
+// }
 
 // First iteration
 // func searchInsert(nums []int, target int) int {
